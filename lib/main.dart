@@ -8,15 +8,15 @@ class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
 
   final emailController = TextEditingController();
+
   final otpController = TextEditingController();
 
-  void sendOTP() async {}
-
-  void validateOTP() {}
+  final messengerKey = GlobalKey<ScaffoldMessengerState>();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scaffoldMessengerKey: messengerKey,
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Email Authentication'),
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
                   labelText: 'Email',
                   border: const OutlineInputBorder(),
                   suffixIcon: TextButton(
-                    onPressed: () => sendOTP(),
+                    onPressed: () {},
                     child: const Text('Send OTP'),
                   ),
                 ),
@@ -51,12 +51,14 @@ class MyApp extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {
-                validateOTP();
-                emailController.clear();
-                otpController.clear();
-              },
               child: const Text('Verify OTP'),
+              onPressed: () {
+                messengerKey.currentState?.showSnackBar(
+                  const SnackBar(
+                    content: Text('Verification Successful...'),
+                  ),
+                );
+              },
             ),
           ],
         ),
