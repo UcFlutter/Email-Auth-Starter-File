@@ -49,13 +49,7 @@ class MyApp extends StatelessWidget {
             ),
             ElevatedButton(
               child: const Text('Verify OTP'),
-              onPressed: () {
-                messengerKey.currentState?.showSnackBar(
-                  const SnackBar(
-                    content: Text('Verification Successful...'),
-                  ),
-                );
-              },
+              onPressed: () {},
             ),
           ],
         ),
