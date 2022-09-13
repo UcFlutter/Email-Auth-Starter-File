@@ -11,12 +11,9 @@ class MyApp extends StatelessWidget {
 
   final otpController = TextEditingController();
 
-  final messengerKey = GlobalKey<ScaffoldMessengerState>();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      scaffoldMessengerKey: messengerKey,
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Email Authentication'),
